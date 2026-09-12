@@ -12,97 +12,147 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
     <style>
-        /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+      :root {
+  --bg: #efeae2;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --ink: #111;
+  --muted: #667781;
+  --brand: #25d366;
+  --stroke: #e9edef;
+  --shadow: none;
 }
 
-/* Main container */
-.chat-container {
+/* Body */
+body {
+  margin: 0;
   height: 100vh;
+  background: var(--bg);
+  font-family: "Segoe UI", sans-serif;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* App container */
+.app {
+  width: 100%;
+  height: 100vh;
+  background: var(--panel);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Left panel */
+.left {
+  width: 320px;
+  background: #ffffff;
+  border-right: 1px solid var(--stroke);
+}
+
+/* Right panel */
+.right {
   background: #efeae2;
 }
 
 /* Header */
-.chat-header {
-  height: 60px;
-  background: #075e54;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  font-size: 18px;
-  font-weight: 500;
+.lh, .ch {
+  background: #f0f2f5;
+  border-bottom: 1px solid var(--stroke);
+}
+
+/* Users list */
+.u {
+  border-radius: 0;
+  padding: 12px;
+}
+
+.u:hover {
+  background: #f5f6f6;
+}
+
+.u.active {
+  background: #e9edef;
+}
+
+/* Avatar */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dfe5e7;
+  color: #555;
+  box-shadow: none;
 }
 
 /* Chat area */
-.chat-box {
-  flex: 1;
-  overflow-y: auto;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.msgs {
+  background: #efeae2;
 }
 
-/* Messages */
-.message {
-  max-width: 65%;
-  padding: 10px 12px;
+/* Message rows */
+.bubbleRow {
+  margin: 6px 0;
+}
+
+/* Common bubble */
+.bubble {
   border-radius: 8px;
   font-size: 14px;
-  line-height: 1.4;
+  padding: 8px 10px;
+  box-shadow: none;
+  border: none;
 }
 
-/* Incoming (left) */
-.message.left {
+/* Sent message */
+.mine .bubble {
+  background: #d9fdd3;
+  border-bottom-right-radius: 2px;
+}
+
+/* Received message */
+.theirs .bubble {
   background: #ffffff;
-  align-self: flex-start;
+  border-bottom-left-radius: 2px;
 }
 
-/* Outgoing (right) */
-.message.right {
-  background: #dcf8c6;
-  align-self: flex-end;
+/* Time */
+.time {
+  font-size: 10px;
+  color: #667781;
 }
 
 /* Input area */
-.chat-input {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background: #f0f0f0;
-  gap: 10px;
+.composer {
+  background: #f0f2f5;
+  border-top: 1px solid var(--stroke);
 }
 
-/* Input field */
-.chat-input input {
-  flex: 1;
-  padding: 10px;
+/* Input */
+#msgInput {
   border-radius: 20px;
   border: none;
-  outline: none;
-  font-size: 14px;
+  padding: 10px 14px;
+  background: #ffffff;
 }
 
 /* Send button */
-.chat-input button {
-  background: #075e54;
+.send {
+  background: var(--brand);
+  border-radius: 50%;
+  padding: 10px 14px;
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 50px;
-  cursor: pointer;
+  box-shadow: none;
 }
 
-.chat-input button:hover {
-  opacity: 0.9;
+/* Buttons (login etc) */
+.btn, .btn2, .btn3 {
+  background: #25d366;
+  color: white;
+  border: none;
+  box-shadow: none;
 }
     </style>
 </head>
